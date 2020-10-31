@@ -11,4 +11,9 @@ func _physics_process(delta):
 		vel.x -= speed
 	elif Input.is_action_pressed("player_right"):
 		vel.x += speed
+		
+	vel.y += gravity*delta
+	
+	if Input.is_action_pressed("player_jump"):
+		vel.y -= jump_force
 	move_and_slide(vel, Vector2.UP)
